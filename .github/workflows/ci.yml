@@ -15,5 +15,12 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: nextjs-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-${{ hashFiles('app/**', 'next.config.ts', 'postcss.config.mjs', 'tsconfig.json') }}
+          restore-keys: |
+            nextjs-${{ runner.os }}-${{ hashFiles('package-lock.json') }}-
+            nextjs-${{ runner.os }}-
       - run: npm ci
       - run: npm run build
