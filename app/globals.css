@@ -505,6 +505,14 @@ input {
   padding: 0 1.25rem;
 }
 
+.inquiry-note {
+  max-width: 28rem;
+  margin: 0.85rem auto 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--body-muted);
+}
+
 @media (min-width: 640px) {
   .waitlist {
     margin-top: 2.5rem;

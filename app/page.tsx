@@ -8,7 +8,9 @@ const SUBLINE =
   "At Feroza Telecom FZCO, we repair and refurbish iPhones for businesses that can't afford inconsistent quality. Our facility in Dubai CommerCity runs on technical expertise, professional machinery and a commitment to getting every device right.";
 const WHATSAPP =
   "https://wa.me/971559946415?text=" +
-  encodeURIComponent("Hello Feroza Telecom, I want to talk about iPhone stock.");
+  encodeURIComponent(
+    "Hello Feroza Telecom FZCO.\nMonthly volume:\nModels:\nThese units are our stock for refurbishment, or a purchase from you.",
+  );
 
 export default function Home() {
   const lenisRef = useRef<Lenis | null>(null);
@@ -118,6 +120,9 @@ export default function Home() {
           <a className="pill hero-wa" href={WHATSAPP} target="_blank" rel="noopener noreferrer">
             Send an inquiry
           </a>
+          <p className="inquiry-note">
+            Send the monthly volume, the models, and whether the units are your stock or a purchase.
+          </p>
         </div>
       </section>
 
@@ -268,7 +273,7 @@ export default function Home() {
             <p className="kicker">The facility</p>
             <h2 className="band-title">Dubai CommerCity facility.</h2>
             <p className="band-lead">
-              Following a sample, clients may visit the facility to review diagnostics, grading, and packing.
+              A visit follows a sample and is arranged on WhatsApp. Clients review diagnostics, grading, and packing at the facility.
               Retail-ready and white-label packing are quoted with the order.
             </p>
           </div>
@@ -348,7 +353,7 @@ const SERVICES = [
   {
     kicker: "Terms",
     title: "Payment terms",
-    copy: "Payment terms are agreed before work begins and are stated on the quotation.",
+    copy: "Payment is by bank transfer, in AED or USD, on the terms stated on the quotation.",
   },
   {
     kicker: "Close",
