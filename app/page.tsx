@@ -221,7 +221,7 @@ export default function Home() {
           <p className="kicker">Materials</p>
           <h2 className="band-title">Components are stated on the quotation.</h2>
           <p className="band-lead">
-            The part fitted to each device is named on the quotation. It is not left to assumption.
+            <strong className="specialism">Waterproofing</strong> is the specialisation. A new seal is fitted and pressure-tested, and the result is stated on the quotation with every other part.
           </p>
           <div className="mat">
             <div className="mat-row mat-head">
@@ -240,8 +240,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="imagine-break" aria-label="Device handling">
-        <LoopVideo src="/imagine.mp4" poster="/imagine-poster.jpg" />
+      <section className="imagine-break" aria-label="Waterproofing">
+        <div className="waterproof-frame">
+          <LoopVideo
+            src="/waterproof.mp4"
+            poster="/waterproof-poster.jpg"
+            label="Water across a sealed iPhone"
+          />
+          <p className="waterproof-mark">
+            <span>Specialisation</span>
+            <strong>Waterproofing</strong>
+          </p>
+        </div>
       </section>
 
       <section className="band band-dim" id="wholesale">
