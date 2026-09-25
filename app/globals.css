@@ -67,7 +67,7 @@ body {
   background: var(--hero-base);
   color: var(--heading);
   overflow-x: hidden;
-  font-family: "Onest", sans-serif;
+  font-family: var(--font-onest), sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

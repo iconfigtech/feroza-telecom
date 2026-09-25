@@ -12,6 +12,48 @@ const WHATSAPP =
     "Hello Feroza Telecom FZCO.\nMonthly volume:\nModels:\nThese units are our stock for refurbishment, or a purchase from you.",
   );
 
+function LoopVideo({
+  src,
+  poster,
+  label,
+}: {
+  src: string;
+  poster: string;
+  label?: string;
+}) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.play().catch(() => {});
+        } else {
+          el.pause();
+        }
+      },
+      { rootMargin: "240px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      poster={poster}
+      muted
+      loop
+      playsInline
+      preload="none"
+      aria-label={label}
+    />
+  );
+}
+
 export default function Home() {
   const lenisRef = useRef<Lenis | null>(null);
   const [ready, setReady] = useState(false);
@@ -99,7 +141,15 @@ export default function Home() {
 
           <div className="stage" aria-hidden="true">
             <span className="metal">REPAIR</span>
-            <img className="stage-phone" src="/phone.jpg" alt="" />
+            <img
+              className="stage-phone"
+              src="/phone.jpg"
+              alt=""
+              width={720}
+              height={1080}
+              fetchPriority="high"
+              decoding="async"
+            />
           </div>
 
           <WordLine
@@ -191,14 +241,7 @@ export default function Home() {
       </section>
 
       <section className="imagine-break" aria-label="Device handling">
-        <video
-          src="/imagine.mp4"
-          poster="/imagine-poster.jpg"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+        <LoopVideo src="/imagine.mp4" poster="/imagine-poster.jpg" />
       </section>
 
       <section className="band band-dim" id="wholesale">
@@ -278,14 +321,10 @@ export default function Home() {
             </p>
           </div>
           <div className="visit-visual">
-            <video
+            <LoopVideo
               src="/facility.mp4"
               poster="/facility.jpg"
-              autoPlay
-              muted
-              loop
-              playsInline
-              aria-label="Work on a device at the bench"
+              label="Work on a device at the bench"
             />
           </div>
         </div>
